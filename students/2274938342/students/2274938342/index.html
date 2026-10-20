@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="陳子揚のプロフィールページ・学籍番号 R25E2539"
+        />
+        <title>自己紹介 · 陳子揚</title>
+        <style>
+            :root {
+                --ink: #172033;
+                --muted: #667085;
+                --line: #e7eaf1;
+                --primary: #5b5cf0;
+                --deep: #3436ae;
+                --shadow: 0 22px 70px rgba(39, 44, 100, 0.14);
+            }
+            * {
+                box-sizing: border-box;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                margin: 0;
+                color: var(--ink);
+                font-family:
+                    "Yu Gothic", "Hiragino Kaku Gothic ProN", system-ui,
+                    sans-serif;
+                background: #f7f8fc;
+                line-height: 1.7;
+            }
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+            .container {
+                width: min(1120px, calc(100% - 40px));
+                margin: 0 auto;
+            }
+            header {
+                position: absolute;
+                z-index: 2;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 26px 0;
+            }
+            .nav,
+            .profile-meta,
+            .section-heading,
+            .contact-wrap,
+            footer .container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+            }
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 800;
+                letter-spacing: 0.04em;
+            }
+            .brand-mark {
+                display: grid;
+                place-items: center;
+                width: 38px;
+                height: 38px;
+                color: #fff;
+                border-radius: 12px;
+                background: var(--primary);
+            }
+            nav {
+                display: flex;
+                gap: 30px;
+                color: #5b6476;
+                font-size: 14px;
+            }
+            nav a:hover {
+                color: var(--primary);
+            }
+            .hero {
+                position: relative;
+                padding: 168px 0 120px;
+            }
+            .hero:before,
+            .hero:after {
+                position: absolute;
+                z-index: -1;
+                content: "";
+                border-radius: 50%;
+            }
+            .hero:before {
+                width: 510px;
+                height: 510px;
+                top: -170px;
+                left: -180px;
+                background: #ebeaff;
+            }
+            .hero:after {
+                width: 420px;
+                height: 420px;
+                top: -100px;
+                right: -150px;
+                background: #fff0e3;
+            }
+            .hero-grid,
+            .about-grid {
+                display: grid;
+                grid-template-columns: 1.05fr 0.95fr;
+                gap: 80px;
+                align-items: center;
+            }
+            .eyebrow {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                color: var(--primary);
+                font-size: 13px;
+                font-weight: 800;
+                letter-spacing: 0.14em;
+            }
+            .eyebrow:before {
+                content: "";
+                width: 26px;
+                height: 2px;
+                background: var(--primary);
+            }
+            h1 {
+                margin: 20px 0 18px;
+                max-width: 600px;
+                font-size: clamp(42px, 6vw, 74px);
+                letter-spacing: -0.06em;
+                line-height: 1.12;
+            }
+            h1 span {
+                color: var(--primary);
+            }
+            .lead {
+                max-width: 560px;
+                margin: 0;
+                color: var(--muted);
+                font-size: 18px;
+            }
+            .actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 14px;
+                margin-top: 34px;
+            }
+            .button {
+                display: inline-flex;
+                align-items: center;
+                gap: 9px;
+                padding: 13px 21px;
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                font-size: 14px;
+                font-weight: 700;
+                background: #fff;
+            }
+            .button.primary {
+                color: #fff;
+                border-color: var(--primary);
+                background: var(--primary);
+            }
+            .profile-card {
+                position: relative;
+                padding: 24px;
+                border: 1px solid rgba(255, 255, 255, 0.9);
+                border-radius: 28px;
+                background: rgba(255, 255, 255, 0.78);
+                box-shadow: var(--shadow);
+                backdrop-filter: blur(14px);
+            }
+            .profile-art {
+                display: grid;
+                place-items: center;
+                min-height: 315px;
+                border-radius: 20px;
+                background: linear-gradient(
+                    145deg,
+                    #5b5cf0,
+                    #8e76e9 55%,
+                    #f1ad82
+                );
+            }
+            .avatar {
+                display: grid;
+                place-items: center;
+                width: 142px;
+                height: 142px;
+                border: 8px solid rgba(255, 255, 255, 0.45);
+                border-radius: 50%;
+                color: #fff;
+                font-size: 40px;
+                font-weight: 800;
+                background: rgba(255, 255, 255, 0.2);
+            }
+            .profile-meta {
+                padding: 22px 3px 2px;
+                align-items: end;
+            }
+            .profile-meta strong {
+                display: block;
+                font-size: 20px;
+            }
+            .profile-meta small {
+                color: var(--muted);
+            }
+            .status {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                color: #3e8d67;
+                font-size: 12px;
+                font-weight: 700;
+            }
+            .status:before {
+                content: "";
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: #53bd83;
+            }
+            section {
+                padding: 100px 0;
+            }
+            .section-heading {
+                align-items: end;
+                margin-bottom: 38px;
+            }
+            .section-heading h2 {
+                margin: 0;
+                font-size: 34px;
+                letter-spacing: -0.04em;
+            }
+            .section-heading p {
+                max-width: 390px;
+                margin: 0;
+                color: var(--muted);
+                font-size: 14px;
+            }
+            .about {
+                background: #fff;
+            }
+            .about-grid {
+                gap: 70px;
+                align-items: start;
+            }
+            .about-copy p {
+                margin: 0 0 20px;
+                color: var(--muted);
+            }
+            .about-copy p:first-child {
+                color: var(--ink);
+                font-size: 21px;
+                font-weight: 700;
+                line-height: 1.55;
+            }
+            .facts,
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+            .fact,
+            .skill {
+                padding: 22px;
+                border: 1px solid var(--line);
+                border-radius: 18px;
+                background: #fbfbfe;
+            }
+            .fact strong {
+                display: block;
+                margin-bottom: 4px;
+                color: var(--primary);
+                font-size: 27px;
+            }
+            .fact span {
+                color: var(--muted);
+                font-size: 13px;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+            }
+            .skill {
+                padding: 28px;
+                background: #fff;
+            }
+            .skill-icon {
+                display: grid;
+                place-items: center;
+                width: 44px;
+                height: 44px;
+                margin-bottom: 24px;
+                border-radius: 13px;
+                color: var(--deep);
+                background: #edeeff;
+                font-size: 20px;
+            }
+            .skill h3 {
+                margin: 0 0 8px;
+                font-size: 18px;
+            }
+            .skill p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 14px;
+            }
+            .contact {
+                padding: 80px 0;
+                color: #fff;
+                background: var(--ink);
+            }
+            .contact h2 {
+                margin: 0 0 8px;
+                font-size: 34px;
+            }
+            .contact p {
+                margin: 0;
+                color: #aeb6cb;
+            }
+            .contact .button {
+                color: var(--ink);
+                border: 0;
+            }
+            footer {
+                padding: 24px 0;
+                color: #8b93a5;
+                background: #101625;
+                font-size: 12px;
+            }
+            @media (max-width: 760px) {
+                .container {
+                    width: min(100% - 28px, 560px);
+                }
+                nav {
+                    display: none;
+                }
+                .hero {
+                    padding: 120px 0 70px;
+                }
+                .hero-grid,
+                .about-grid {
+                    grid-template-columns: 1fr;
+                    gap: 42px;
+                }
+                h1 {
+                    font-size: 48px;
+                }
+                section {
+                    padding: 70px 0;
+                }
+                .section-heading {
+                    display: block;
+                }
+                .section-heading p {
+                    margin-top: 12px;
+                }
+                .skills-grid {
+                    grid-template-columns: 1fr;
+                }
+                .contact-wrap,
+                footer .container {
+                    display: block;
+                }
+                .contact .button {
+                    margin-top: 24px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <header>
+                <div class="container nav">
+                    <a class="brand" href="#top"
+                        ><span class="brand-mark">R</span><span>陳子揚</span></a
+                    >
+                    <nav aria-label="メインナビゲーション">
+                        <a href="#about">プロフィール</a
+                        ><a href="#skills">得意分野</a
+                        ><a href="#contact">お問い合わせ</a>
+                    </nav>
+                </div>
+            </header>
+            <main id="top">
+                <section class="hero">
+                    <div class="container hero-grid">
+                        <div>
+                            <div class="eyebrow">HELLO, NICE TO MEET YOU</div>
+                            <h1>こんにちは、<br /><span>陳子揚</span>です</h1>
+                            <p class="lead">
+                                23歳です。ゲームや映画、漫画が好きで、好きな作品を楽しみながら毎日を過ごしています。
+                            </p>
+                            <div class="actions">
+                                <a class="button primary" href="#about"
+                                    >詳しく見る <span>→</span></a
+                                ><a class="button" href="#contact"
+                                    >連絡する <span>→</span></a
+                                >
+                            </div>
+                        </div>
+                        <div
+                            class="profile-card"
+                            aria-label="プロフィールカード"
+                        >
+                            <div class="profile-art">
+                                <div class="avatar">R</div>
+                            </div>
+                            <div class="profile-meta">
+                                <div>
+                                    <strong>陳子揚</strong
+                                    ><small>23歳 · 学籍番号：R25E2539</small>
+                                </div>
+                                <div class="status">活動中</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="about" id="about">
+                    <div class="container">
+                        <div class="section-heading">
+                            <h2>プロフィール</h2>
+                            <p>私について</p>
+                        </div>
+                        <div class="about-grid">
+                            <div class="about-copy">
+                                <p>
+                                    23歳で、ゲームや映画、漫画が大好きです。お気に入りの作品を見つけると、時間を忘れて楽しんでしまいます。
+                                </p>
+                                <p>
+                                    ゲームでは世界観やストーリーを楽しみ、映画や漫画ではさまざまな物語に触れることが好きです。
+                                </p>
+                                <p>
+                                    趣味を通じて新しい作品や考え方に出会えることを楽しみにしています。
+                                </p>
+                            </div>
+                            <div class="facts">
+                                <div class="fact">
+                                    <strong>年齢</strong><span>23歳</span>
+                                </div>
+                                <div class="fact">
+                                    <strong>興味</strong
+                                    ><span>ゲーム、映画、漫画</span>
+                                </div>
+                                <div class="fact">
+                                    <strong>学校</strong
+                                    ><span>京都コンピュータ学院</span>
+                                </div>
+                                <div class="fact">
+                                    <strong>学籍番号</strong
+                                    ><span>R25E2539</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="skills">
+                    <div class="container">
+                        <div class="section-heading">
+                            <h2>得意分野</h2>
+                            <p>興味を持って取り組んでいること</p>
+                        </div>
+                        <div class="skills-grid">
+                            <article class="skill">
+                                <div class="skill-icon">✦</div>
+                                <h3>学ぶこと</h3>
+                                <p>
+                                    未知の分野にも興味を持ち、楽しみながら理解を深めます。
+                                </p>
+                            </article>
+                            <article class="skill">
+                                <div class="skill-icon">→</div>
+                                <h3>行動力</h3>
+                                <p>
+                                    目標を決めたら、計画を立てて一歩ずつ行動します。
+                                </p>
+                            </article>
+                            <article class="skill">
+                                <div class="skill-icon">◎</div>
+                                <h3>協力する力</h3>
+                                <p>
+                                    相手の意見を尊重し、協力しながらより良い結果を目指します。
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <section class="contact" id="contact">
+                    <div class="container contact-wrap">
+                        <div>
+                            <h2>お気軽にご連絡ください</h2>
+                            <p>
+                                ご質問やご相談がありましたら、ぜひお声がけください。
+                            </p>
+                        </div>
+                        <a class="button" href="mailto:2274938342@qq.com"
+                            >メールを送る <span>→</span></a
+                        >
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <div class="container">
+                    <span>© 2026 陳子揚 · R25E2539</span>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
